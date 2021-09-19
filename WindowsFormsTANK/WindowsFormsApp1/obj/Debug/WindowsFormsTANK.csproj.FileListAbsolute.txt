@@ -1,0 +1,10 @@
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.csprojAssemblyReference.cache
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.FormTANK.resources
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.csproj.GenerateResource.cache
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.csproj.CoreCompileInputs.cache
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\tanya\Desktop\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
