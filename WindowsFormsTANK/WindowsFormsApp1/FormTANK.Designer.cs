@@ -30,30 +30,25 @@ namespace WindowsFormsTANK
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTANK));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+        
             this.pictureBoxTank = new System.Windows.Forms.PictureBox();
             this.Create = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+      
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTank)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(697, 708);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBoxCars
+            
+            
+            // pictureBoxTank
             // 
             this.pictureBoxTank.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxTank.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxTank.Name = "pictureBoxCars";
+            this.pictureBoxTank.Name = "pictureBoxTank";
             this.pictureBoxTank.Size = new System.Drawing.Size(882, 453);
             this.pictureBoxTank.TabIndex = 1;
             this.pictureBoxTank.TabStop = false;
@@ -116,22 +111,32 @@ namespace WindowsFormsTANK
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(136, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(191, 24);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Создать новый танк";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // FormTANK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 453);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.Create);
             this.Controls.Add(this.pictureBoxTank);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            
+            this.Name = "FormTANK";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+         
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTank)).EndInit();
             this.ResumeLayout(false);
 
@@ -139,13 +144,14 @@ namespace WindowsFormsTANK
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+     
         private System.Windows.Forms.PictureBox pictureBoxTank;
         private System.Windows.Forms.Button Create;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
+        private System.Windows.Forms.Button button1;
     }
 }
 

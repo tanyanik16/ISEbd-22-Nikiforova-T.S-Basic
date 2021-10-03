@@ -12,7 +12,7 @@ namespace WindowsFormsTANK
 {
     public partial class FormTANK : Form
     {
-        private TANK Tank = new TANK();
+        private BasicTANK Tank ;
         public FormTANK()
         {
             InitializeComponent();
@@ -56,10 +56,7 @@ namespace WindowsFormsTANK
             Draw();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+ 
         /// <summary>
         /// Обработка нажатия кнопки "Создать"
         /// </summary>
@@ -69,16 +66,20 @@ namespace WindowsFormsTANK
         private void Create_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            Tank = new TANK();
-            Tank.Init(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
+            Tank= new TANK(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue,
             Color.Yellow, true, true, true, true); Tank.SetPosition(rnd.Next(10, 100),
-            rnd.Next(10, 100), this.Size.Width, this.Size.Height);
+            rnd.Next(10, 100), pictureBoxTank.Width,
+pictureBoxTank.Height);
             Draw();
         }
 
-        private void FormTANK_Resize(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Tank.resize(this.Size.Height, this.Size.Width);
+            Random rnd = new Random();
+            Tank = new BasicTANK(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue);
+            Tank.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxTank.Width,
+pictureBoxTank.Height);
+            Draw();
         }
     }
 }

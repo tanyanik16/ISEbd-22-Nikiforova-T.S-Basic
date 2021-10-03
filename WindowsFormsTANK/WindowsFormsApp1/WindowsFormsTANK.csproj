@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicTANK.cs" />
+    <Compile Include="ITransport.cs" />
     <Compile Include="TANK.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormTANK.cs">
@@ -56,6 +58,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormTANK.resx">
       <DependentUpon>FormTANK.cs</DependentUpon>
     </EmbeddedResource>
