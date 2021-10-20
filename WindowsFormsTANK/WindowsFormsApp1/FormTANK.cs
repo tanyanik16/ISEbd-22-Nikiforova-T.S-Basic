@@ -12,22 +12,34 @@ namespace WindowsFormsTANK
 {
     public partial class FormTANK : Form
     {
-        private BasicTANK Tank ;
+        private ITransport Tank ;
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public FormTANK()
         {
             InitializeComponent();
         }
-
         /// <summary>
-        /// Метод отрисовки машины
+        /// Передача машины на форму
         /// </summary>
-        private void Draw()
+        /// <param name="car"></param>
+        public void SetTank(ITransport Tank)
         {
+            this.Tank =Tank ;
+            Draw();
+        }
+
+            /// <summary>
+            /// Метод отрисовки машины
+            /// </summary>
+            private void Draw()
+            {
             Bitmap bmp = new Bitmap(pictureBoxTank.Width, pictureBoxTank.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            Tank.DrawTransport(gr);
+            Tank?.DrawTransport(gr);
             pictureBoxTank.Image = bmp;
-        }
+            }
 
         /// <summary>
         /// Обработка нажатия кнопок управления
@@ -55,8 +67,6 @@ namespace WindowsFormsTANK
             }
             Draw();
         }
-
- 
         /// <summary>
         /// Обработка нажатия кнопки "Создать"
         /// </summary>
