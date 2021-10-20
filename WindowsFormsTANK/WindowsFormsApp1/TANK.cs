@@ -58,6 +58,7 @@ namespace WindowsFormsTANK
         public override void DrawTransport(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
+            //base.DrawTransport(g);
 
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовка
             //автомобиля на него "легла")
@@ -82,14 +83,20 @@ namespace WindowsFormsTANK
                 g.DrawEllipse(pen, _startPosX + 135, _startPosY + 70, 10, 10);
                 g.DrawEllipse(pen, _startPosX + 170, _startPosY + 60, 20, 20);
             }
-            base.DrawTransport(g);
+            //base.DrawTransport(g);
             if (SportLine)
             {
                 //гусеница
                 g.DrawEllipse(pen, _startPosX + 30, _startPosY + 50, 170, 40);
                 g.DrawEllipse(pen, _startPosX + 25, _startPosY + 45, 180, 50);
             }
-            
+            //люк
+            Brush luk = new SolidBrush(DopColor);
+            g.FillRectangle(luk, _startPosX + 100, _startPosY, 20, 10);
+            //дуло
+            Brush dulo = new SolidBrush(MainColor);
+            g.FillRectangle(dulo, _startPosX + 140, _startPosY + 15, 80, 10);
+
         }
     }
 }

@@ -18,3 +18,14 @@ C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic\WindowsFormsTANK\Windo
 C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.csproj.CoreCompileInputs.cache
 C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.csprojAssemblyReference.cache
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.FormTANK.resources
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.csproj.GenerateResource.cache
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.csproj.CoreCompileInputs.cache
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic2\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.FormParking.resources
