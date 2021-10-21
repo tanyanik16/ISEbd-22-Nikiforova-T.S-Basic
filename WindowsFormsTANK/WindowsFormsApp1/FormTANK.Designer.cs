@@ -30,7 +30,6 @@ namespace WindowsFormsTANK
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTANK));
-        
             this.pictureBoxTank = new System.Windows.Forms.PictureBox();
             this.Create = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
@@ -38,12 +37,9 @@ namespace WindowsFormsTANK
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-      
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTank)).BeginInit();
             this.SuspendLayout();
             // 
-            
-            
             // pictureBoxTank
             // 
             this.pictureBoxTank.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -52,6 +48,7 @@ namespace WindowsFormsTANK
             this.pictureBoxTank.Size = new System.Drawing.Size(882, 453);
             this.pictureBoxTank.TabIndex = 1;
             this.pictureBoxTank.TabStop = false;
+            this.pictureBoxTank.Click += new System.EventHandler(this.pictureBoxTank_Click);
             // 
             // Create
             // 
@@ -133,10 +130,8 @@ namespace WindowsFormsTANK
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.Create);
             this.Controls.Add(this.pictureBoxTank);
-            
             this.Name = "FormTANK";
             this.Text = "Form1";
-         
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTank)).EndInit();
             this.ResumeLayout(false);
 
