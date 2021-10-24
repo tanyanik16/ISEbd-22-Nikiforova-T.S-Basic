@@ -14,9 +14,13 @@ namespace WindowsFormsTANK
     public class Parking<T> where T : class, ITransport
     {
         /// <summary>
-        /// Массив объектов, которые храним
+        /// Список объектов, которые храним
         /// </summary>
-        private readonly T[] _places;
+        private readonly List<T> _places;
+        /// <summary>
+        /// Максимальное количество мест на парковке
+        /// </summary>
+        private readonly int _maxCount;
         /// <summary>
         /// Ширина окна отрисовки
         /// </summary>
@@ -28,7 +32,7 @@ namespace WindowsFormsTANK
         /// <summary>
         /// Размер парковочного места (ширина)
         /// </summary>
-        private readonly int _placeSizeWidth = 220;
+        private readonly int _placeSizeWidth = 200;
         /// <summary>
         /// Размер парковочного места (высота)
         /// </summary>
@@ -43,49 +47,45 @@ namespace WindowsFormsTANK
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new T[width * height];
+            _maxCount = width * height;
             pictureWidth = picWidth;
             pictureHeight = picHeight;
+            _places = new List<T>();
+
         }
         /// <summary>
         /// Перегрузка оператора сложения
         /// Логика действия: на парковку добавляется автомобиль
         /// </summary>
         /// <param name="p">Парковка</param>
-        /// <param name="tank">Добавляемый автомобиль</param>
+        /// <param name="car">Добавляемый автомобиль</param>
         /// <returns></returns>
-        public static int operator +(Parking<T> p, T tank)
+        public static bool operator +(Parking<T> p, T tank)
         {
-            int width = p.pictureWidth / p._placeSizeWidth;
-            for (int i = 0; i < p._places.Length; i++)
+            if (p._places.Count >= p._maxCount)
             {
-                if (p._places[i] == null)
-                {
-                    p._places[i] = tank;
-                    tank.SetPosition(i % width * p._placeSizeWidth + 5,
-                    (i / width * p._placeSizeHeight + 5), p.pictureWidth, p.pictureHeight);
-
-                    return i;
-                }
+                return false;
             }
-            return -1;
+            p._places.Add(tank);
+            return true;
         }
+
         /// <summary>
         /// Перегрузка оператора вычитания
         /// Логика действия: с парковки забираем автомобиль
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
-        /// <returns></returns>
-        public static T operator -(Parking<T> p, int index)
+ /// <returns></returns>
+ public static T operator -(Parking<T> p, int index)
         {
-            if ((index < p._places.Length) && (index >= 0))
+            if (index < -1 || index > p._places.Count)
             {
-                T tank = p._places[index];
-                p._places[index] = null;
-                return tank;
+                return null;
             }
-            return null;
+            T tank = p._places[index];
+            p._places.RemoveAt(index);
+            return tank;
         }
         /// <summary>
         /// Метод отрисовки парковки
@@ -93,10 +93,15 @@ namespace WindowsFormsTANK
         /// <param name="g"></param>
         public void Draw(Graphics g)
         {
+            int changeHeight = 10;
+            int width = pictureWidth / _placeSizeWidth;
             DrawMarking(g);
-            for (int i = 0; i < _places.Length; i++)
+            for (int i = 0; i < _places.Count; i++)
             {
-                _places[i]?.DrawTransport(g);
+                _places[i].SetPosition(i % width * _placeSizeWidth + changeHeight,
+                i / width * _placeSizeHeight + changeHeight, pictureWidth,
+                pictureHeight);
+                _places[i].DrawTransport(g);
             }
         }
         /// <summary>
@@ -110,14 +115,14 @@ namespace WindowsFormsTANK
             {
                 for (int j = 0; j < pictureHeight / _placeSizeHeight + 1; ++j)
                 {//линия рамзетки места
-                    {
-                        g.DrawLine(pen, i * _placeSizeWidth + 3, j * _placeSizeHeight + 3, i * _placeSizeWidth + _placeSizeWidth / 2 + 90, j * _placeSizeHeight + 3);
-                    }
-                    g.DrawLine(pen, i * _placeSizeWidth + 3, 3, i * _placeSizeWidth + 3, (pictureHeight / _placeSizeHeight) * _placeSizeHeight + 3);
+                    g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i *
+                   _placeSizeWidth + _placeSizeWidth / 2, j * _placeSizeHeight);
                 }
+                g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,
+               (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
         }
     }
 }
 
-    
+

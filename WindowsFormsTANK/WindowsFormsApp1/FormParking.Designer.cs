@@ -36,6 +36,11 @@
             this.buttonSetTank = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBoxParkings = new System.Windows.Forms.ListBox();
+            this.buttonDelParking_Click = new System.Windows.Forms.Button();
+            this.maskedTextBox = new System.Windows.Forms.TextBox();
+            this.buttonAddParking = new System.Windows.Forms.Button();
+            this.textBoxNewLevelName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +50,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 450);
+            this.pictureBox1.Size = new System.Drawing.Size(827, 480);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -95,7 +100,6 @@
             this.buttonSetTank.TabIndex = 3;
             this.buttonSetTank.Text = "Припарковать танк";
             this.buttonSetTank.UseVisualStyleBackColor = true;
-
             // 
             // button2
             // 
@@ -117,11 +121,66 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // listBoxParkings
+            // 
+            this.listBoxParkings.FormattingEnabled = true;
+            this.listBoxParkings.ItemHeight = 16;
+            this.listBoxParkings.Location = new System.Drawing.Point(647, 367);
+            this.listBoxParkings.Name = "listBoxParkings";
+            this.listBoxParkings.Size = new System.Drawing.Size(155, 52);
+            this.listBoxParkings.TabIndex = 6;
+            this.listBoxParkings.SelectedIndexChanged += new System.EventHandler(this.listBoxParkings_SelectedIndexChanged);
+            // 
+            // buttonDelParking_Click
+            // 
+            this.buttonDelParking_Click.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelParking_Click.Location = new System.Drawing.Point(642, 425);
+            this.buttonDelParking_Click.Name = "buttonDelParking_Click";
+            this.buttonDelParking_Click.Size = new System.Drawing.Size(160, 43);
+            this.buttonDelParking_Click.TabIndex = 7;
+            this.buttonDelParking_Click.Text = "Удалить парковку";
+            this.buttonDelParking_Click.UseVisualStyleBackColor = true;
+            this.buttonDelParking_Click.Click += new System.EventHandler(this.buttonDelParking_Click_Click);
+            // 
+            // maskedTextBox
+            // 
+            this.maskedTextBox.Location = new System.Drawing.Point(647, 310);
+            this.maskedTextBox.Name = "maskedTextBox";
+            this.maskedTextBox.Size = new System.Drawing.Size(141, 22);
+            this.maskedTextBox.TabIndex = 8;
+            this.maskedTextBox.Text = "Парковки";
+            
+            // 
+            // buttonAddParking
+            // 
+            this.buttonAddParking.Location = new System.Drawing.Point(642, 338);
+            this.buttonAddParking.Name = "buttonAddParking";
+            this.buttonAddParking.Size = new System.Drawing.Size(161, 23);
+            this.buttonAddParking.TabIndex = 9;
+            this.buttonAddParking.Text = "Добавить";
+            this.buttonAddParking.UseVisualStyleBackColor = true;
+            this.buttonAddParking.Click += new System.EventHandler(this.buttonAddParking_Click_1);
+            // 
+            // textBoxNewLevelName
+            // 
+            this.textBoxNewLevelName.AutoSize = true;
+            this.textBoxNewLevelName.Location = new System.Drawing.Point(682, 290);
+            this.textBoxNewLevelName.Name = "textBoxNewLevelName";
+            this.textBoxNewLevelName.Size = new System.Drawing.Size(75, 17);
+            this.textBoxNewLevelName.TabIndex = 10;
+            this.textBoxNewLevelName.Text = "Парковки:";
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(827, 480);
+            this.Controls.Add(this.textBoxNewLevelName);
+            this.Controls.Add(this.buttonAddParking);
+            this.Controls.Add(this.maskedTextBox);
+            this.Controls.Add(this.buttonDelParking_Click);
+            this.Controls.Add(this.listBoxParkings);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
@@ -133,6 +192,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -146,5 +206,10 @@
         private System.Windows.Forms.Button buttonSetTank;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBoxParkings;
+        private System.Windows.Forms.Button buttonDelParking_Click;
+        private System.Windows.Forms.TextBox maskedTextBox;
+        private System.Windows.Forms.Button buttonAddParking;
+        private System.Windows.Forms.Label textBoxNewLevelName;
     }
 }

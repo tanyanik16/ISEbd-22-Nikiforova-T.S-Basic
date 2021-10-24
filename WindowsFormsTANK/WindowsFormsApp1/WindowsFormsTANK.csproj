@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="ITransport.cs" />
     <Compile Include="Parking.cs" />
+    <Compile Include="ParkingCollection.cs" />
     <Compile Include="TANK.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormTANK.cs">
