@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsTANK
 {
+    /// <summary>
+    /// Класс отрисовки модифицированнного танка
+    /// </summary>
     public class TANK:BasicTANK
     {
         public Color DopColor { private set; get; }
@@ -58,8 +61,7 @@ namespace WindowsFormsTANK
         public override void DrawTransport(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
-            //base.DrawTransport(g);
-
+            
             // отрисуем сперва передний спойлер автомобиля (чтобы потом отрисовка
             //автомобиля на него "легла")
             if (FrontSpoiler)
@@ -68,10 +70,12 @@ namespace WindowsFormsTANK
                 Brush br = new SolidBrush(Color.Black);
                 g.DrawRectangle(pen, _startPosX + 80, _startPosY + 10, 60, 20);
                 g.DrawRectangle(pen, _startPosX + 40, _startPosY + 30, 150, 20);
-                g.FillRectangle(br, _startPosX + 40, _startPosY + 30, 149, 19);
-                g.FillRectangle(br, _startPosX + 80, _startPosY + 10, 59, 19);
+                
 
             }
+            Brush bra = new SolidBrush(Color.Black);
+            g.FillRectangle(bra, _startPosX + 40, _startPosY + 30, 149, 19);
+            g.FillRectangle(bra, _startPosX + 80, _startPosY + 10, 59, 19);
             if (SideSpoiler)
             {
                 //колеса
@@ -83,21 +87,33 @@ namespace WindowsFormsTANK
                 g.DrawEllipse(pen, _startPosX + 135, _startPosY + 70, 10, 10);
                 g.DrawEllipse(pen, _startPosX + 170, _startPosY + 60, 20, 20);
             }
-            //base.DrawTransport(g);
+            base.DrawTransport(g);
+            //гусеница
+            g.DrawEllipse(pen, _startPosX + 30, _startPosY + 50, 170, 40);
+            g.DrawEllipse(pen, _startPosX + 25, _startPosY + 45, 180, 50);
             if (SportLine)
             {
-                //гусеница
-                g.DrawEllipse(pen, _startPosX + 30, _startPosY + 50, 170, 40);
-                g.DrawEllipse(pen, _startPosX + 25, _startPosY + 45, 180, 50);
+                //дуло
+                Brush dulo = new SolidBrush(MainColor);
+                g.FillRectangle(dulo, _startPosX + 140, _startPosY + 15, 80, 10);
             }
-            //люк
-            Brush luk = new SolidBrush(DopColor);
-            g.FillRectangle(luk, _startPosX + 100, _startPosY, 20, 10);
-            //дуло
-            Brush dulo = new SolidBrush(MainColor);
-            g.FillRectangle(dulo, _startPosX + 140, _startPosY + 15, 80, 10);
-
+            if (BackSpoiler)
+            {
+                //люк
+                Brush luk = new SolidBrush(DopColor);
+                g.FillRectangle(luk, _startPosX + 100, _startPosY, 20, 10);
+                
+            }
         }
+        /// <summary>
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
+
     }
 }
 

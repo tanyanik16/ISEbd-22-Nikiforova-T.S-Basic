@@ -14,6 +14,7 @@ namespace WindowsFormsTANK
 {
     public partial class FormParking : Form
     {
+        
         /// <summary>
         /// Объект от класса-коллекции парковок
         /// </summary>
@@ -78,7 +79,7 @@ namespace WindowsFormsTANK
                     if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
                         var tank = new TANK(100, 1000, dialog.Color,
-                       dialogDop.Color, true, true, true, true);
+                       dialogDop.Color, true, true,true, true);
                         if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + tank)
                         {
                             Draw();
@@ -181,6 +182,38 @@ namespace WindowsFormsTANK
         {
             Draw();
         }
+        /// <summary>
+        /// Обработка нажатия кнопки "Добавить автомобиль"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            var formTankConfig = new FormTankConfig();
+           formTankConfig.AddEvent(Addtank);
+            formTankConfig.Show();
+        }
+        
+        /// <summary>
+        /// Метод добавления машины
+        /// </summary>
+        /// <param name="car"></param>
+        private void Addtank(Vehicle tank)
+        {
+            if (tank != null && listBoxParkings.SelectedIndex > -1)
+            {
+                if ((parkingCollection[listBoxParkings.SelectedItem.ToString()]) + tank)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
+        }
+
+     
     }
 }
 

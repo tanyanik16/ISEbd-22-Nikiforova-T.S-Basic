@@ -95,10 +95,6 @@ namespace WindowsFormsTANK
 
             g.DrawEllipse(pen, _startPosX + 30, _startPosY + 50, 170, 40);
             g.DrawEllipse(pen, _startPosX + 25, _startPosY + 45, 180, 50);
-            
-
-            
-
         }
     }
 }
