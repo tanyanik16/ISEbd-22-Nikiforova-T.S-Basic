@@ -34,13 +34,12 @@
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSetTank = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.listBoxParkings = new System.Windows.Forms.ListBox();
             this.buttonDelParking_Click = new System.Windows.Forms.Button();
             this.maskedTextBox = new System.Windows.Forms.TextBox();
             this.buttonAddParking = new System.Windows.Forms.Button();
             this.textBoxNewLevelName = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -101,26 +100,6 @@
             this.buttonSetTank.Text = "Припарковать танк";
             this.buttonSetTank.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(641, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 61);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Припарковать модифицированный танк";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(642, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 51);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Припарковать танк";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // listBoxParkings
             // 
             this.listBoxParkings.FormattingEnabled = true;
@@ -150,7 +129,6 @@
             this.maskedTextBox.Size = new System.Drawing.Size(141, 22);
             this.maskedTextBox.TabIndex = 8;
             this.maskedTextBox.Text = "Парковки";
-            
             // 
             // buttonAddParking
             // 
@@ -171,19 +149,28 @@
             this.textBoxNewLevelName.TabIndex = 10;
             this.textBoxNewLevelName.Text = "Парковки:";
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(633, 23);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(154, 66);
+            this.buttonAdd.TabIndex = 11;
+            this.buttonAdd.Text = "Добавить танк";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 480);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBoxNewLevelName);
             this.Controls.Add(this.buttonAddParking);
             this.Controls.Add(this.maskedTextBox);
             this.Controls.Add(this.buttonDelParking_Click);
             this.Controls.Add(this.listBoxParkings);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonSetTank);
             this.Name = "FormParking";
@@ -204,12 +191,11 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSetTank;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBoxParkings;
         private System.Windows.Forms.Button buttonDelParking_Click;
         private System.Windows.Forms.TextBox maskedTextBox;
         private System.Windows.Forms.Button buttonAddParking;
         private System.Windows.Forms.Label textBoxNewLevelName;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

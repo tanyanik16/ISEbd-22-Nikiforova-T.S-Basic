@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsTANK
 {
-    public abstract class Vehicle: ITransport
+    public abstract class Vehicle : ITransport
     {
         /// <summary>
         /// Левая координата отрисовки автомобиля
@@ -39,11 +39,16 @@ namespace WindowsFormsTANK
         public Color MainColor { protected set; get; }
         public void SetPosition(int x, int y, int width, int height)
         {
-            _startPosX = x-20;
-            _startPosY = y+10;
+            _startPosX = x - 20;
+            _startPosY = y + 10;
             _pictureWidth = width;
             _pictureHeight = height;
         }
+        public void SetMainColor(Color color)
+        {
+            MainColor = color;
+        } 
+
         public abstract void DrawTransport(Graphics g);
         public abstract void MoveTransport(Direction direction);
     }

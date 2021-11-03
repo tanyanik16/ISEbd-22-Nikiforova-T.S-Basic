@@ -6,6 +6,8 @@ using System.Windows.Forms;
 
 namespace WindowsFormsTANK
 {
+    public delegate void TankDelegate(Vehicle tank);
+
     static class Program
     {
         /// <summary>
