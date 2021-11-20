@@ -92,9 +92,5 @@ pictureBoxTank.Height);
             Draw();
         }
 
-        private void pictureBoxTank_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
