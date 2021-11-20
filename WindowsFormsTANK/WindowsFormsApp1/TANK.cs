@@ -53,7 +53,26 @@ namespace WindowsFormsTANK
             BackSpoiler = backSpoiler;
             SportLine = sportLine;
         }
- 
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        /// <param name="info"></param>
+        public TANK(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                FrontSpoiler = Convert.ToBoolean(strs[4]);
+                BackSpoiler = Convert.ToBoolean(strs[5]);
+                SideSpoiler = Convert.ToBoolean(strs[6]);
+                SportLine = Convert.ToBoolean(strs[7]);
+            }
+        }
+
         /// <summary>
         /// Отрисовка автомобиля
         /// </summary>
@@ -112,6 +131,11 @@ namespace WindowsFormsTANK
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+        public override string ToString()
+        {
+            return
+           $"{base.ToString()}{separator}{DopColor.Name}{separator}{FrontSpoiler}{separator}{SideSpoiler}{separator}{BackSpoiler}{ separator}{ SportLine}";
         }
 
     }

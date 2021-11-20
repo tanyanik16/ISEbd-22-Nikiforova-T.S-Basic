@@ -19,6 +19,10 @@ namespace WindowsFormsTANK
         /// </summary>
         protected readonly int TankHeight = 95;
         /// <summary>
+        /// Разделитель для записи информации по объекту в файл
+        /// </summary>
+        protected readonly char separator = ';';
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
@@ -29,6 +33,20 @@ namespace WindowsFormsTANK
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
+        }
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        /// <param name="info">Информация по объекту</param>
+        public BasicTANK(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
         }
         protected BasicTANK(int maxSpeed, float weight, Color mainColor, int TankWidth, int TankHeight)
         {
@@ -95,6 +113,10 @@ namespace WindowsFormsTANK
 
             g.DrawEllipse(pen, _startPosX + 30, _startPosY + 50, 170, 40);
             g.DrawEllipse(pen, _startPosX + 25, _startPosY + 45, 180, 50);
+        }
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
     }
 }
