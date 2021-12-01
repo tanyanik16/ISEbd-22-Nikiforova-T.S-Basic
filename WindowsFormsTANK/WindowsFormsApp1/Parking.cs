@@ -64,7 +64,7 @@ namespace WindowsFormsTANK
         {
             if (p._places.Count >= p._maxCount)
             {
-                return false;
+                throw new ParkingOverflowException();
             }
             p._places.Add(tank);
             return true;
@@ -81,7 +81,7 @@ namespace WindowsFormsTANK
         {
             if (index < -1 || index > p._places.Count)
             {
-                return null;
+                throw new ParkingNotFoundException(index);
             }
             T tank = p._places[index];
             p._places.RemoveAt(index);

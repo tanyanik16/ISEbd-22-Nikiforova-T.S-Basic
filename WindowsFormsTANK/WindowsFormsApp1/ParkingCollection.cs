@@ -101,96 +101,102 @@ namespace WindowsFormsTANK
         /// </summary>
         /// <param name="filename">Путь и имя файла</param>
         /// <returns></returns>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
                 File.Delete(filename);
             }
-            using (StreamWriter fs = new StreamWriter(filename))
+            using (FileStream fs = new FileStream(filename, FileMode.Create))
             {
-                fs.WriteLine($"ParkingCollection");
+                WriteToFile($"ParkingCollection{Environment.NewLine}", fs);
                 foreach (var level in parkingStages)
                 {
                     //Начинаем парковку
-                    fs.WriteLine($"Parking{separator}{level.Key}");
-                    ITransport tank = null;
-                    for (int i = 0; (tank = level.Value.GetNext(i)) != null; i++)
+                    WriteToFile($"Parking{separator}{level.Key}{Environment.NewLine}",
+                    fs);
+                    ITransport car = null;
+                    for (int i = 0; (car = level.Value.GetNext(i)) != null; i++)
                     {
-                        if (tank != null)
+                        //Записываем тип мшаины
+                        if (car.GetType().Name == "BasicTANK")
                         {
-                            //если место не пустое
-                            //Записываем тип машины
-                            if (tank.GetType().Name == "BasicTANK")
-                            {
-                                fs.Write($"BasicTANK{separator}");
-                            }
-                            if (tank.GetType().Name == "TANK")
-                            {
-                                fs.Write($"TANK{separator}");
-                            }
-                            //Записываемые параметры
-                            fs.WriteLine(tank);
+                            WriteToFile($"BasicTANK{separator}", fs);
                         }
+                        if (car.GetType().Name == "TANK")
+                        {
+                            WriteToFile($"TANK{separator}", fs);
+                        }
+                        //Записываемые параметры
+                        WriteToFile(car + Environment.NewLine, fs);
                     }
                 }
-            }
-            return true;
-        }
-        /// <summary>
-        /// Загрузка нформации по автомобилям на парковках из файла
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        public bool LoadData(string filename)
-        {
-            if (!File.Exists(filename))
-            {
-                return false;
-            }
-            using (StreamReader strs = new StreamReader(filename))
-            {
-                string line = strs.ReadLine();
-                Vehicle tank = null;
-                string key = string.Empty;
-                if (line.Contains("ParkingCollection"))
-                {
-                    parkingStages.Clear();
-                    line = strs.ReadLine();
-                    while (line != null)
-                    {
-                        if (line.Contains("Parking"))
-                        {
-                            key = line.Split(separator)[1];
-                            parkingStages.Add(key, new Parking<Vehicle>(pictureWidth, pictureHeight));
-                            line = strs.ReadLine();
-                            continue;
-                        }
-                        if (string.IsNullOrEmpty(line))
-                        {
-                            line = strs.ReadLine();
-                            continue;
-                        }
-                        if (line.Split(separator)[0] == "TANK")
-                        {
-                            tank = new TANK(line.Split(separator)[1]);
-                        }
-                        else if (line.Split(separator)[0] == "BasicTANK")
-                        {
-                            tank = new BasicTANK(line.Split(separator)[1]);
-                        }
-                        var result = parkingStages[key] + tank;
-                        if (!result)
-                        {
-                            return false;
-                        }
-                        line = strs.ReadLine();
-                    }
-                    return true;
-                }
-                return false;
             }
 
         }
-    }
+        /// <summary>
+        /// Загрузка мнформации по танкам на парковках из файла
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        public void LoadData(string filename)
+        {
+            if (!File.Exists(filename))
+            {
+                throw new FileNotFoundException();
+            }
+            string bufferTextFromFile = "";
+            using (FileStream fs = new FileStream(filename, FileMode.Open))
+            {
+                byte[] b = new byte[fs.Length];
+                UTF8Encoding temp = new UTF8Encoding(true);
+                while (fs.Read(b, 0, b.Length) > 0)
+                {
+                    bufferTextFromFile += temp.GetString(b);
+                }
+            }
+            bufferTextFromFile = bufferTextFromFile.Replace("\r", "");
+            var strs = bufferTextFromFile.Split('\n');
+            if (strs[0].Contains("ParkingCollection"))
+            {
+                //очищаем записи
+                parkingStages.Clear();
+            }
+            else
+            {
+                //если нет такой записи, то это не те данные
+                throw new Exception("Неверный формат файла");
+            }
+            Vehicle tank = null;
+            string key = string.Empty;
+            for (int i = 1; i < strs.Length; ++i)
+            {
+                //идем по считанным записям
+                if (strs[i].Contains("Parking"))
+                {
+                    //начинаем новую парковку
+                    key = strs[i].Split(separator)[1];
+                    parkingStages.Add(key, new Parking<Vehicle>(pictureWidth, pictureHeight));
+                    continue;
+                }
+                if (string.IsNullOrEmpty(strs[i]))
+                {
+                    continue;
+                }
+                if (strs[i].Split(separator)[0] == "BasicTANK")
+                   
+                {
+                    tank = new BasicTANK(strs[i].Split(separator)[1]);
+                }
+ else if (strs[i].Split(separator)[0] == "TANK")
+                {
+                    tank = new TANK(strs[i].Split(separator)[1]);
+                }
+                if (!(parkingStages[key] +tank))
+                {
+                    throw new Exception("Не удалось загрузить танк на парковку");
+                }
+            }
+        }
+    } 
 }
