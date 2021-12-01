@@ -41,3 +41,6 @@ C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic1\WindowsFormsTANK\Wind
 C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic1\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
 C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic1\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
 C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic1\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.FormTankConfig.resources
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic1\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\NLog.dll
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic1\WindowsFormsTANK\WindowsFormsApp1\bin\Debug\NLog.xml
+C:\Users\tanya\source\repos\ISEbd-22-Nikiforova-T.S-Basic1\WindowsFormsTANK\WindowsFormsApp1\obj\Debug\WindowsFormsTANK.csproj.CopyComplete

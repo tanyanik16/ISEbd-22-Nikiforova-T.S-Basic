@@ -48,7 +48,7 @@ namespace WindowsFormsTANK
             this.pictureBoxTank.Size = new System.Drawing.Size(882, 453);
             this.pictureBoxTank.TabIndex = 1;
             this.pictureBoxTank.TabStop = false;
-          
+           
             // 
             // Create
             // 

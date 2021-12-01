@@ -1,4 +1,5 @@
 ﻿using System;
+using NLog;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +17,13 @@ namespace WindowsFormsTANK
         /// <summary>
         /// Конструктор
         /// </summary>
+        
         public FormTANK()
         {
             InitializeComponent();
+           
         }
+      
         /// <summary>
         /// Передача машины на форму
         /// </summary>
@@ -91,6 +95,5 @@ pictureBoxTank.Height);
 pictureBoxTank.Height);
             Draw();
         }
-
     }
 }

@@ -176,6 +176,8 @@ true, true, checkBoxDulo.Checked, checkBoxlyk.Checked);
             eventAddTank?.Invoke(tank);
             Close();
         }
+
+       
     }
 }
 
