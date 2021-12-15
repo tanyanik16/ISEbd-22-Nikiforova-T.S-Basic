@@ -11,7 +11,7 @@ namespace WindowsFormsTANK
     /// <summary>
     /// Класс отрисовки модифицированнного танка
     /// </summary>
-    public class TANK:BasicTANK
+    public class TANK:BasicTANK, IEquatable<TANK>
     {
         public Color DopColor { private set; get; }
         /// <summary>
@@ -137,7 +137,76 @@ namespace WindowsFormsTANK
             return
            $"{base.ToString()}{separator}{DopColor.Name}{separator}{FrontSpoiler}{separator}{SideSpoiler}{separator}{BackSpoiler}{ separator}{ SportLine}";
         }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса SportCar
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool Equals(TANK other)
+        {
 
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (FrontSpoiler != other.FrontSpoiler)
+            {
+                return false;
+            }
+            if (BackSpoiler != other.BackSpoiler)
+            {
+                return false;
+            }
+            if (SideSpoiler != other.SideSpoiler)
+            {
+                return false;
+            }
+            if (SportLine != other.SportLine)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is TANK TankObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(TankObj);
+            }
+        }
     }
 }
 

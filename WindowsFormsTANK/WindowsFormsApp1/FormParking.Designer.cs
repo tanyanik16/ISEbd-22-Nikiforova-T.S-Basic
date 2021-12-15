@@ -55,9 +55,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 30);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(629, 452);
+            this.pictureBox1.Size = new System.Drawing.Size(629, 450);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -112,7 +112,7 @@
             // 
             this.listBoxParkings.FormattingEnabled = true;
             this.listBoxParkings.ItemHeight = 16;
-            this.listBoxParkings.Location = new System.Drawing.Point(647, 367);
+            this.listBoxParkings.Location = new System.Drawing.Point(647, 379);
             this.listBoxParkings.Name = "listBoxParkings";
             this.listBoxParkings.Size = new System.Drawing.Size(155, 52);
             this.listBoxParkings.TabIndex = 6;
@@ -122,7 +122,7 @@
             // 
             this.buttonDelParking_Click.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDelParking_Click.Location = new System.Drawing.Point(642, 425);
+            this.buttonDelParking_Click.Location = new System.Drawing.Point(643, 437);
             this.buttonDelParking_Click.Name = "buttonDelParking_Click";
             this.buttonDelParking_Click.Size = new System.Drawing.Size(160, 43);
             this.buttonDelParking_Click.TabIndex = 7;
@@ -132,7 +132,7 @@
             // 
             // maskedTextBox
             // 
-            this.maskedTextBox.Location = new System.Drawing.Point(647, 310);
+            this.maskedTextBox.Location = new System.Drawing.Point(652, 322);
             this.maskedTextBox.Name = "maskedTextBox";
             this.maskedTextBox.Size = new System.Drawing.Size(141, 22);
             this.maskedTextBox.TabIndex = 8;
@@ -140,7 +140,7 @@
             // 
             // buttonAddParking
             // 
-            this.buttonAddParking.Location = new System.Drawing.Point(642, 338);
+            this.buttonAddParking.Location = new System.Drawing.Point(640, 350);
             this.buttonAddParking.Name = "buttonAddParking";
             this.buttonAddParking.Size = new System.Drawing.Size(161, 23);
             this.buttonAddParking.TabIndex = 9;
@@ -151,7 +151,7 @@
             // textBoxNewLevelName
             // 
             this.textBoxNewLevelName.AutoSize = true;
-            this.textBoxNewLevelName.Location = new System.Drawing.Point(682, 290);
+            this.textBoxNewLevelName.Location = new System.Drawing.Point(626, 302);
             this.textBoxNewLevelName.Name = "textBoxNewLevelName";
             this.textBoxNewLevelName.Size = new System.Drawing.Size(75, 17);
             this.textBoxNewLevelName.TabIndex = 10;
@@ -174,7 +174,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(827, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(827, 30);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -184,7 +184,7 @@
             this.сохранитьToolStripMenuItem,
             this.загрузитьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // сохранитьToolStripMenuItem
@@ -212,12 +212,13 @@
             // 
             // buttonSort
             // 
-            this.buttonSort.Location = new System.Drawing.Point(651, 253);
+            this.buttonSort.Location = new System.Drawing.Point(652, 259);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(137, 34);
             this.buttonSort.TabIndex = 13;
             this.buttonSort.Text = "Сортировать";
             this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
             // 
             // FormParking
             // 

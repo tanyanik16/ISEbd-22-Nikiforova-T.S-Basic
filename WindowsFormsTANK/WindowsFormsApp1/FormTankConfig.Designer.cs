@@ -309,6 +309,7 @@
             this.buttonCancel.TabIndex = 16;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
+           
             // 
             // FormTankConfig
             // 
