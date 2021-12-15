@@ -115,20 +115,19 @@ namespace WindowsFormsTANK
                     //Начинаем парковку
                     WriteToFile($"Parking{separator}{level.Key}{Environment.NewLine}",
                     fs);
-                    ITransport car = null;
-                    for (int i = 0; (car = level.Value.GetNext(i)) != null; i++)
+                    foreach (ITransport tank in level.Value)
                     {
                         //Записываем тип мшаины
-                        if (car.GetType().Name == "BasicTANK")
+                        if (tank.GetType().Name == "BasicTANK")
                         {
-                            WriteToFile($"BasicTANK{separator}", fs);
+                            WriteToFile($"Car{separator}", fs);
                         }
-                        if (car.GetType().Name == "TANK")
+                        if (tank.GetType().Name == "TANK")
                         {
-                            WriteToFile($"TANK{separator}", fs);
+                            WriteToFile($"SportCar{separator}", fs);
                         }
                         //Записываемые параметры
-                        WriteToFile(car + Environment.NewLine, fs);
+                        WriteToFile(tank + Environment.NewLine, fs);
                     }
                 }
             }

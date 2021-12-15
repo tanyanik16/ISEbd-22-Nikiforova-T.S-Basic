@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Collections;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,8 @@ namespace WindowsFormsTANK
     /// Параметризованный класс для хранения набора объектов от интерфейса ITransport
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Parking<T> where T : class, ITransport
+    public class Parking<T> : IEnumerator<T>, IEnumerable<T>
+        where T : class, ITransport
     {
         /// <summary>
         /// Список объектов, которые храним
@@ -37,7 +40,12 @@ namespace WindowsFormsTANK
         /// Размер парковочного места (высота)
         /// </summary>
         private readonly int _placeSizeHeight = 120;
-
+        /// <summary>
+        /// Текущий элемент для вывода через IEnumerator (будет обращаться по своемуиндексу к ключу словаря, по которму будет возвращаться запись)
+        /// </summary>
+         private int _currentIndex;
+        public T Current => _places[_currentIndex];
+        object IEnumerator.Current => _places[_currentIndex];
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -51,7 +59,7 @@ namespace WindowsFormsTANK
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
-
+            _currentIndex = -1;
         }
         /// <summary>
         /// Перегрузка оператора сложения
@@ -66,6 +74,10 @@ namespace WindowsFormsTANK
             {
                 throw new ParkingOverflowException();
             }
+            if (p._places.Contains(tank))
+            {
+                throw new ParkingAlreadyHaveException();
+            }
             p._places.Add(tank);
             return true;
         }
@@ -76,8 +88,8 @@ namespace WindowsFormsTANK
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
- /// <returns></returns>
- public static T operator -(Parking<T> p, int index)
+        /// <returns></returns>
+        public static T operator -(Parking<T> p, int index)
         {
             if (index < -1 || index > p._places.Count)
             {
@@ -135,7 +147,50 @@ namespace WindowsFormsTANK
             }
             return _places[index];
         }
-
+        /// <summary>
+        /// Сортировка автомобилей на парковке
+        /// </summary>
+        public void Sort() => _places.Sort((IComparer<T>)new TankComparer());
+        /// <summary>
+        /// Метод интерфейса IEnumerator, вызываемый при удалении объекта
+        /// </summary>
+        public void Dispose()
+        {
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для перехода к следующему элементу или началу коллекции
+        /// </summary>
+        /// <returns></returns>
+        public bool MoveNext()
+        {
+            if (_currentIndex + 1 >= _places.Count)
+            {
+                return false;
+            }
+            _currentIndex++;
+            return true;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerator для сброса и возврата к началу коллекции
+        /// </summary>
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+        /// <summary>
+        /// Метод интерфейса IEnumerable
+        /// </summary>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
+        }
     }
 }
 

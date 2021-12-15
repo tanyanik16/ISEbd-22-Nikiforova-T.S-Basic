@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace WindowsFormsTANK
 {
-    public class BasicTANK : Vehicle
+    public class BasicTANK : Vehicle, IEquatable<BasicTANK>
     {
         /// <summary>
         /// Ширина отрисовки автомобиля
@@ -93,13 +93,13 @@ namespace WindowsFormsTANK
         public override void DrawTransport(Graphics g)
         {
             Pen pen = new Pen(Color.Black);
-           
-                //прямоугльники
-                Brush br = new SolidBrush(MainColor);
-                g.DrawRectangle(pen, _startPosX + 80, _startPosY+10 , 60, 20);
-                g.DrawRectangle(pen, _startPosX + 40, _startPosY + 30, 150, 20);
-                g.FillRectangle(br, _startPosX + 40, _startPosY + 30, 149, 19);
-                g.FillRectangle(br, _startPosX + 80, _startPosY+10, 59, 19);
+
+            //прямоугльники
+            Brush br = new SolidBrush(MainColor);
+            g.DrawRectangle(pen, _startPosX + 80, _startPosY + 10, 60, 20);
+            g.DrawRectangle(pen, _startPosX + 40, _startPosY + 30, 150, 20);
+            g.FillRectangle(br, _startPosX + 40, _startPosY + 30, 149, 19);
+            g.FillRectangle(br, _startPosX + 80, _startPosY + 10, 59, 19);
 
             //колеса
             Brush brYellow = new SolidBrush(Color.Yellow);
@@ -117,6 +117,51 @@ namespace WindowsFormsTANK
         public override string ToString()
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
+        }
+        public bool Equals(BasicTANK other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Перегрузка метода от object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is BasicTANK TankObj))
+            {
+                return false;
+            }
+
+            else
+            {
+                return Equals(TankObj);
+            }
         }
     }
 }
